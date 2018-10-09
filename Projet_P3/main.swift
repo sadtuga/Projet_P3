@@ -27,3 +27,12 @@ repeat {
     }
 } while team2.getName() == team1.getName()
 
+print("+---------------------------------------------------+")
+print("|              👥 Création d'équipe 👥              |")
+print("+---------------------------------------------------+\n")
+
+print("\n\(team1.getName()) composé votre équipe\n")
+team1.selectCharacter(team: team2)
+
+print("\n\(team2.getName()) composé votre équipe\n")
+team2.selectCharacter(team: team1)
