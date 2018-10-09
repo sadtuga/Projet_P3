@@ -127,5 +127,36 @@ class Team {
             addCharacter(choice: inputClass, playerInput: inputName)
         }
     }
+    // affichage
+    private func padding (chain: String, lenght: Int) -> String {
+        let padded = chain.padding(toLength: lenght, withPad: " ", startingAt: 0)
+        return padded
+    }
+    
+    private func convertInString(value: Int) -> String {
+        let temp: Int = value
+        let str: String = String(temp)
+        if value < 100 && value > 0 {
+            return str + " "
+        }else if value == 0 {
+            return "⚰️ "
+        }
+        return str
+    }
+    
+    func displayTeam() {
+        let space: String = padding(chain: "", lenght: 10)
+        var str: String = ""
+        
+        print("\n+-------------------------------------------------+")
+        print(padding(chain: "|         composition de l'équipe \(name)", lenght: 50) + "|")
+        print("+-------------------------------------------------+\n")
+        print("  Nom            Classe         PV         dégats\n")
+        
+        for i in 0 ..< stock.count {
+            str = convertInString(value: stock[i].hp)
+            print("\(i + 1)." + padding(chain: stock[i].name, lenght: 15) + padding(chain: stock[i].species, lenght: 15) + str + space + "\(stock[i].weapon.power)")
+        }
+    }
     
 }

@@ -36,3 +36,6 @@ team1.selectCharacter(team: team2)
 
 print("\n\(team2.getName()) composé votre équipe\n")
 team2.selectCharacter(team: team1)
+
+team1.displayTeam()
+team2.displayTeam()
