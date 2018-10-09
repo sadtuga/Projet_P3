@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Axe: Weapons {
+    init() {
+        super.init(name: "Hache", power: 70)
+    }
+}

@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class Character {
+    var hp: Int
+    var name: String
+    var species: String
+    var weapon: Weapons
+    
+    init(name: String, hp: Int, species: String, weapon: Weapons) {
+        self.name = name
+        self.hp = hp
+        self.species = species
+        self.weapon = weapon
+    }
+}

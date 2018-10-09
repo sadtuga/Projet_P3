@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Weapons {
+    var power: Int = 0
+    var name: String = ""
+    
+    init(name: String, power: Int) {
+        self.name = name
+        self.power = power
+    }
+}

@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Warrior: Character {
+    init(name: String) {
+        super.init(name: name, hp: 170, species: "Guerrier", weapon: Sword())
+    }
+}

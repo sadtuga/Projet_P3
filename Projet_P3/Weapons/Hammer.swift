@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Hammer: Weapons {
+    init() {
+        super.init(name: "Marteau", power: 20)
+    }
+}
