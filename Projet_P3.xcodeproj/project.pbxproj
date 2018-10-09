@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		A0DF9B92216D5ADD0030F823 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B91216D5ADD0030F823 /* main.swift */; };
+		A0DF9B9C216D5D630030F823 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B9B216D5D630030F823 /* Game.swift */; };
+		A0DF9B9E216D5D720030F823 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B9D216D5D720030F823 /* Team.swift */; };
+		A0DF9BA1216D5D880030F823 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BA0216D5D880030F823 /* Character.swift */; };
+		A0DF9BA3216D5D9F0030F823 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BA2216D5D9F0030F823 /* Weapon.swift */; };
+		A0DF9BA5216D5DB00030F823 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BA4216D5DB00030F823 /* Dwarf.swift */; };
+		A0DF9BA9216D5DD10030F823 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BA8216D5DD10030F823 /* Warrior.swift */; };
+		A0DF9BAB216D5DE10030F823 /* Tank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BAA216D5DE10030F823 /* Tank.swift */; };
+		A0DF9BAD216D5E050030F823 /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BAC216D5E050030F823 /* Wizard.swift */; };
+		A0DF9BAF216D5E1B0030F823 /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BAE216D5E1B0030F823 /* Axe.swift */; };
+		A0DF9BB1216D5E2F0030F823 /* Sword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BB0216D5E2F0030F823 /* Sword.swift */; };
+		A0DF9BB3216D5E400030F823 /* Hammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BB2216D5E400030F823 /* Hammer.swift */; };
+		A0DF9BB5216D5E550030F823 /* Stick.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9BB4216D5E550030F823 /* Stick.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +37,18 @@
 /* Begin PBXFileReference section */
 		A0DF9B8E216D5ADD0030F823 /* Projet_P3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_P3; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DF9B91216D5ADD0030F823 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A0DF9B9B216D5D630030F823 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A0DF9B9D216D5D720030F823 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		A0DF9BA0216D5D880030F823 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		A0DF9BA2216D5D9F0030F823 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		A0DF9BA4216D5DB00030F823 /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
+		A0DF9BA8216D5DD10030F823 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		A0DF9BAA216D5DE10030F823 /* Tank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tank.swift; sourceTree = "<group>"; };
+		A0DF9BAC216D5E050030F823 /* Wizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
+		A0DF9BAE216D5E1B0030F823 /* Axe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
+		A0DF9BB0216D5E2F0030F823 /* Sword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
+		A0DF9BB2216D5E400030F823 /* Hammer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hammer.swift; sourceTree = "<group>"; };
+		A0DF9BB4216D5E550030F823 /* Stick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stick.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +81,37 @@
 		A0DF9B90216D5ADD0030F823 /* Projet_P3 */ = {
 			isa = PBXGroup;
 			children = (
+				A0DF9B99216D5D440030F823 /* Character */,
+				A0DF9B98216D5D350030F823 /* Weapons */,
 				A0DF9B91216D5ADD0030F823 /* main.swift */,
+				A0DF9B9B216D5D630030F823 /* Game.swift */,
+				A0DF9B9D216D5D720030F823 /* Team.swift */,
+				A0DF9BA0216D5D880030F823 /* Character.swift */,
+				A0DF9BA2216D5D9F0030F823 /* Weapon.swift */,
 			);
 			path = Projet_P3;
+			sourceTree = "<group>";
+		};
+		A0DF9B98216D5D350030F823 /* Weapons */ = {
+			isa = PBXGroup;
+			children = (
+				A0DF9BAE216D5E1B0030F823 /* Axe.swift */,
+				A0DF9BB0216D5E2F0030F823 /* Sword.swift */,
+				A0DF9BB2216D5E400030F823 /* Hammer.swift */,
+				A0DF9BB4216D5E550030F823 /* Stick.swift */,
+			);
+			path = Weapons;
+			sourceTree = "<group>";
+		};
+		A0DF9B99216D5D440030F823 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				A0DF9BA4216D5DB00030F823 /* Dwarf.swift */,
+				A0DF9BA8216D5DD10030F823 /* Warrior.swift */,
+				A0DF9BAA216D5DE10030F823 /* Tank.swift */,
+				A0DF9BAC216D5E050030F823 /* Wizard.swift */,
+			);
+			path = Character;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +171,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DF9BB5216D5E550030F823 /* Stick.swift in Sources */,
+				A0DF9BA3216D5D9F0030F823 /* Weapon.swift in Sources */,
+				A0DF9BAD216D5E050030F823 /* Wizard.swift in Sources */,
+				A0DF9BAF216D5E1B0030F823 /* Axe.swift in Sources */,
+				A0DF9B9E216D5D720030F823 /* Team.swift in Sources */,
+				A0DF9BA5216D5DB00030F823 /* Dwarf.swift in Sources */,
+				A0DF9BB1216D5E2F0030F823 /* Sword.swift in Sources */,
 				A0DF9B92216D5ADD0030F823 /* main.swift in Sources */,
+				A0DF9B9C216D5D630030F823 /* Game.swift in Sources */,
+				A0DF9BA9216D5DD10030F823 /* Warrior.swift in Sources */,
+				A0DF9BB3216D5E400030F823 /* Hammer.swift in Sources */,
+				A0DF9BAB216D5DE10030F823 /* Tank.swift in Sources */,
+				A0DF9BA1216D5D880030F823 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
