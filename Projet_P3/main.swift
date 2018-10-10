@@ -14,6 +14,7 @@ print("+---------------------------------------------------+\n")
 
 var team1: Team = Team()
 var team2: Team = Team()
+var game: Game = Game()
 
 print("Jouer 1 saisissez votre nom : ", terminator: "")
 team1.nameTeam()
@@ -37,5 +38,28 @@ team1.selectCharacter(team: team2)
 print("\n\(team2.getName()) composé votre équipe\n")
 team2.selectCharacter(team: team1)
 
-team1.displayTeam()
-team2.displayTeam()
+print("+----------------------------------------------------+")
+print("|               ⚔️ Début du combat! ⚔️               |")
+print("+----------------------------------------------------+\n")
+
+var teamAttacker: Team = team1
+var teamTarget: Team = team2
+var rand: UInt32 = arc4random_uniform(100)
+
+print("🎲Le hasard décidera de qui portera le premier coup!🎲\n")
+
+if rand % 2 == 1 {
+    teamAttacker = team1
+    teamTarget = team2
+}else if rand % 2 == 0 {
+    teamAttacker = team2
+    teamTarget = team1
+}
+while 1 == 1 {
+    teamAttacker.displayTeam()
+    teamTarget.displayTeam()
+    game.fight(teamAttacker: teamAttacker, teamTarget: teamTarget)
+    swap(&teamAttacker, &teamTarget)// switch roles
+    print("Appuyez sur une touche pour continuer!\n")
+    if readLine() != nil {}
+}
