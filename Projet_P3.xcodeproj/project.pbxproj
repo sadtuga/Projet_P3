@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0882B45216EB60500EE63BC /* Genzaniku.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B44216EB60500EE63BC /* Genzaniku.swift */; };
+		A0882B47216EB61D00EE63BC /* Ahavarion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B46216EB61D00EE63BC /* Ahavarion.swift */; };
+		A0882B49216EB63100EE63BC /* TrancheCiel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B48216EB63100EE63BC /* TrancheCiel.swift */; };
+		A0882B4B216EB64100EE63BC /* Héliophore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B4A216EB64100EE63BC /* Héliophore.swift */; };
 		A0DF9B92216D5ADD0030F823 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B91216D5ADD0030F823 /* main.swift */; };
 		A0DF9B9C216D5D630030F823 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B9B216D5D630030F823 /* Game.swift */; };
 		A0DF9B9E216D5D720030F823 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B9D216D5D720030F823 /* Team.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A0882B44216EB60500EE63BC /* Genzaniku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genzaniku.swift; sourceTree = "<group>"; };
+		A0882B46216EB61D00EE63BC /* Ahavarion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ahavarion.swift; sourceTree = "<group>"; };
+		A0882B48216EB63100EE63BC /* TrancheCiel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrancheCiel.swift; sourceTree = "<group>"; };
+		A0882B4A216EB64100EE63BC /* Héliophore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Héliophore.swift"; sourceTree = "<group>"; };
 		A0DF9B8E216D5ADD0030F823 /* Projet_P3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_P3; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DF9B91216D5ADD0030F823 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A0DF9B9B216D5D630030F823 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -62,6 +70,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0882B43216EB59800EE63BC /* LegendaryWeapons */ = {
+			isa = PBXGroup;
+			children = (
+				A0882B44216EB60500EE63BC /* Genzaniku.swift */,
+				A0882B46216EB61D00EE63BC /* Ahavarion.swift */,
+				A0882B48216EB63100EE63BC /* TrancheCiel.swift */,
+				A0882B4A216EB64100EE63BC /* Héliophore.swift */,
+			);
+			path = LegendaryWeapons;
+			sourceTree = "<group>";
+		};
 		A0DF9B85216D5ADD0030F823 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +100,7 @@
 		A0DF9B90216D5ADD0030F823 /* Projet_P3 */ = {
 			isa = PBXGroup;
 			children = (
+				A0882B43216EB59800EE63BC /* LegendaryWeapons */,
 				A0DF9B99216D5D440030F823 /* Character */,
 				A0DF9B98216D5D350030F823 /* Weapons */,
 				A0DF9B91216D5ADD0030F823 /* main.swift */,
@@ -177,11 +197,15 @@
 				A0DF9BAF216D5E1B0030F823 /* Axe.swift in Sources */,
 				A0DF9B9E216D5D720030F823 /* Team.swift in Sources */,
 				A0DF9BA5216D5DB00030F823 /* Dwarf.swift in Sources */,
+				A0882B4B216EB64100EE63BC /* Héliophore.swift in Sources */,
+				A0882B45216EB60500EE63BC /* Genzaniku.swift in Sources */,
 				A0DF9BB1216D5E2F0030F823 /* Sword.swift in Sources */,
 				A0DF9B92216D5ADD0030F823 /* main.swift in Sources */,
 				A0DF9B9C216D5D630030F823 /* Game.swift in Sources */,
 				A0DF9BA9216D5DD10030F823 /* Warrior.swift in Sources */,
 				A0DF9BB3216D5E400030F823 /* Hammer.swift in Sources */,
+				A0882B49216EB63100EE63BC /* TrancheCiel.swift in Sources */,
+				A0882B47216EB61D00EE63BC /* Ahavarion.swift in Sources */,
 				A0DF9BAB216D5DE10030F823 /* Tank.swift in Sources */,
 				A0DF9BA1216D5D880030F823 /* Character.swift in Sources */,
 			);

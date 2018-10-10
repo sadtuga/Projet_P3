@@ -60,6 +60,6 @@ while game.endGame(team1: team1, team2: team2) == false {
     teamTarget.displayTeam()
     game.fight(teamAttacker: teamAttacker, teamTarget: teamTarget)
     swap(&teamAttacker, &teamTarget)// switch roles
-    print("Appuyez sur une touche pour continuer!\n")
+    print("Appuyez sur entrer pour continuer!\n")
     if readLine() != nil {}
 }

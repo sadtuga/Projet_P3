@@ -80,6 +80,7 @@ class Game {
         var input: String = ""
         var check: Bool = false
         var dodge: Bool = false
+        let event: UInt32 = arc4random_uniform(100)
         var indexA: Int = 0
         var indexB: Int = 0
         
@@ -115,6 +116,10 @@ class Game {
                         check = true
                     }
             }
+        
+        if event >= 15 && event <= 40 {
+            fighter.weapon.magicChest(character: fighter)
+        }
 
         if fighter.species == "Magicien" {
             target = teamAttacker.stock[indexB]
@@ -128,7 +133,10 @@ class Game {
                 teamTarget.deadCharacter += target.die()
             }
         }
-
+        
+        if event >= 15 && event <= 40 {
+            fighter.weapon.basicWeapon(character: fighter)
+        }
     }
     
     private func forfeit(team: Team) -> Bool{
