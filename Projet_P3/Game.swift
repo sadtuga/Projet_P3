@@ -125,10 +125,35 @@ class Game {
             dodge = fighter.attack(target: target)
             if dodge == false {
                 print("\n" + fighter.name + " à attaquer " + target.name + " qui a perdu " + String(fighter.weapon.power) + " points de vie 💔\n")
-                target.die()
+                teamTarget.deadCharacter += target.die()
             }
         }
 
+    }
+    
+    private func forfeit(team: Team) -> Bool{
+        for i in 0 ..< team.stock.count {
+            if team.stock[i].species == "Magicien" && team.stock[i].hp > 0 {
+                print("\nl'équipe " + team.getName() + " d'éclare forfait\n")
+                return true
+            }
+        }
+        return false
+    }
+    
+    func endGame(team1: Team, team2: Team) -> Bool {
+        if team1.deadCharacter == 3 {
+            print("\n🎉 Victoire de \(team2.getName()) 🎉")
+            return true
+        }else if team1.deadCharacter == 2 {
+            return forfeit(team: team1)
+        }else if team2.deadCharacter == 3 {
+            print("\n🎉 Victoire de \(team1.getName()) 🎉")
+            return true
+        }else if team2.deadCharacter == 2 {
+            return forfeit(team: team2)
+        }
+        return false
     }
     
 }

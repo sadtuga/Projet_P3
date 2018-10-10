@@ -55,7 +55,7 @@ if rand % 2 == 1 {
     teamAttacker = team2
     teamTarget = team1
 }
-while 1 == 1 {
+while game.endGame(team1: team1, team2: team2) == false {
     teamAttacker.displayTeam()
     teamTarget.displayTeam()
     game.fight(teamAttacker: teamAttacker, teamTarget: teamTarget)

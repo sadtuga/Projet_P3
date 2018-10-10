@@ -11,6 +11,7 @@ import Foundation
 class Team {
     private var name: String = ""
     private var wizard: Int = 0
+    var deadCharacter: Int = 0
     var stock: [Character] = []
     
     func getName() -> String {

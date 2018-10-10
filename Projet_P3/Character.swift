@@ -52,12 +52,14 @@ class Character {
         }
     }
     
-    func die() {
+    func die() -> Int {
         if self.hp <= 0 {
             self.hp = 0
             self.life = false
             print(self.name + " est mort ☠️\n")
+            return 1
         }
+        return 0
     }
 
 }
