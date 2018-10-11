@@ -23,7 +23,6 @@ class Game {
         if let index = Int(input) {
             if isAlive(character: stock[index-1]) == true {
                 return index-1
-                
             }else {
                 return -1
             }
@@ -35,7 +34,7 @@ class Game {
     private func needHealing(stock: [Character]) -> Bool {
         var cpt: Int = 0
         for i in 0 ..< stock.count {
-            if stock[i].hp < stock[i].maxHP {
+            if stock[i].hp < stock[i].maxHP && stock[i].life != false {
                 cpt += 1
             }
         }
@@ -66,6 +65,10 @@ class Game {
                     input = readInput()
                 }else if stock[index-1].hp == stock[index-1].maxHP && stock[index-1].species != "Magicien" {
                     print("\nLa santé de " + stock[index-1].name + " est au max sélectionner un autre personnage 🔄")
+                    print("\nSélectionner une cible parmi les membres de votre équipe pour le soigner 💊")
+                    input = readInput()
+                }else if stock[index-1].life == false && stock[index-1].species != "Magicien"{
+                    print("\n\(stock[index-1].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
                     print("\nSélectionner une cible parmi les membres de votre équipe pour le soigner 💊")
                     input = readInput()
                 }else if stock[index-1].hp != stock[index-1].maxHP && stock[index-1].species != "Magicien" {

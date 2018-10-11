@@ -27,7 +27,8 @@ class Team {
         while check == 0 {
             if let input = readLine() {
                 if input.count == 0 || input == " " {
-                    print("Nom incorrect ❌")
+                    print("Nom incorrect ❌\n")
+                    print("Saisissez un nom valide : ", terminator: "")
                 }else {
                     setName(value: input)
                     check = 1
@@ -82,17 +83,17 @@ class Team {
     
     private func verifyName(name: String, team: Team) -> Bool {
         var converted: String = ""
-        
         converted = name.lowercased()
-        
+
         for i in 0 ..< stock.count {
-            if converted == stock[i].name {
+            print(stock[i].name)
+            if converted == stock[i].name.lowercased() {
                 print("Le nom saisi est deja pris ❌")
                 return true
             }
         }
         for y in 0 ..< team.stock.count {
-            if converted == team.stock[y].name {
+            if converted == team.stock[y].name.lowercased() {
                 print("Le nom saisi est deja pris ❌")
                 return true
             }
