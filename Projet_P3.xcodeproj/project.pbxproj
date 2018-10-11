@@ -11,6 +11,7 @@
 		A0882B47216EB61D00EE63BC /* Ahavarion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B46216EB61D00EE63BC /* Ahavarion.swift */; };
 		A0882B49216EB63100EE63BC /* TrancheCiel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B48216EB63100EE63BC /* TrancheCiel.swift */; };
 		A0882B4B216EB64100EE63BC /* Héliophore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0882B4A216EB64100EE63BC /* Héliophore.swift */; };
+		A0A631B9216FB316003F8309 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A631B8216FB316003F8309 /* Display.swift */; };
 		A0DF9B92216D5ADD0030F823 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B91216D5ADD0030F823 /* main.swift */; };
 		A0DF9B9C216D5D630030F823 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B9B216D5D630030F823 /* Game.swift */; };
 		A0DF9B9E216D5D720030F823 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF9B9D216D5D720030F823 /* Team.swift */; };
@@ -43,6 +44,7 @@
 		A0882B46216EB61D00EE63BC /* Ahavarion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ahavarion.swift; sourceTree = "<group>"; };
 		A0882B48216EB63100EE63BC /* TrancheCiel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrancheCiel.swift; sourceTree = "<group>"; };
 		A0882B4A216EB64100EE63BC /* Héliophore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Héliophore.swift"; sourceTree = "<group>"; };
+		A0A631B8216FB316003F8309 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		A0DF9B8E216D5ADD0030F823 /* Projet_P3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_P3; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DF9B91216D5ADD0030F823 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A0DF9B9B216D5D630030F823 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A0DF9B9D216D5D720030F823 /* Team.swift */,
 				A0DF9BA0216D5D880030F823 /* Character.swift */,
 				A0DF9BA2216D5D9F0030F823 /* Weapon.swift */,
+				A0A631B8216FB316003F8309 /* Display.swift */,
 			);
 			path = Projet_P3;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				A0DF9BA3216D5D9F0030F823 /* Weapon.swift in Sources */,
 				A0DF9BAD216D5E050030F823 /* Wizard.swift in Sources */,
 				A0DF9BAF216D5E1B0030F823 /* Axe.swift in Sources */,
+				A0A631B9216FB316003F8309 /* Display.swift in Sources */,
 				A0DF9B9E216D5D720030F823 /* Team.swift in Sources */,
 				A0DF9BA5216D5DB00030F823 /* Dwarf.swift in Sources */,
 				A0882B4B216EB64100EE63BC /* Héliophore.swift in Sources */,
