@@ -22,7 +22,7 @@ class Weapons {
         case "Nain":
             print("\nLe nain ramasse Genzaniku une hache légendaire qui inflige \(character.weapon.power) point de dégâts")
             character.weapon = Genzaniku()
-        case "Prêtre":
+        case "Magicien":
             character.weapon = Ahavarion()
             print("\nLe prêtre ramasse Ahavarion une bâton légendaire qui régénère \(character.weapon.power) point de vie")
         case "Guerrier":
@@ -40,7 +40,7 @@ class Weapons {
         switch character.species {
         case "Nain":
             character.weapon = Axe()
-        case "Prêtre":
+        case "Magicien":
             character.weapon = Stick()
         case "Guerrier":
             character.weapon = Sword()

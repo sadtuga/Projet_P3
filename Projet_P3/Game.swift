@@ -34,7 +34,7 @@ class Game {
     private func needHealing(stock: [Character]) -> Bool {
         var cpt: Int = 0
         for i in 0 ..< stock.count {
-            if stock[i].hp < stock[i].maxHP && stock[i].life != false {
+            if stock[i].hp < stock[i].maxHP && stock[i].life != false && stock[i].species != "Magicien" {
                 cpt += 1
             }
         }

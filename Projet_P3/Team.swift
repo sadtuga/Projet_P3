@@ -65,7 +65,7 @@ class Team {
     
     private func isWizard(input: String) -> Bool {
         if input == "2" && wizard >= 1 {
-            print("\nVous possédez déjà un prêtre❗️\n")
+            print("\nVous possédez déjà un Magicien❗️\n")
             return true
         }else if input == "2" && wizard < 1 {
             wizard += 1
