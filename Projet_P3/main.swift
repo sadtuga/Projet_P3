@@ -15,6 +15,7 @@ print("+---------------------------------------------------+\n")
 var team1: Team = Team()
 var team2: Team = Team()
 var game: Game = Game()
+var round: Int = 0
 
 print("Jouer 1 saisissez votre nom : ", terminator: "")
 team1.nameTeam()
@@ -55,11 +56,14 @@ if rand % 2 == 1 {
     teamAttacker = team2
     teamTarget = team1
 }
-while game.endGame(team1: team1, team2: team2) == false {
-    teamAttacker.displayTeam()
-    teamTarget.displayTeam()
+while game.endGame(team1: teamAttacker, team2: teamTarget, round: round) == false {
+    round += 1
+    game.displayRound(round: round)
+    game.displayTeam(team: teamAttacker)
+    game.displayTeam(team: teamTarget)
     game.fight(teamAttacker: teamAttacker, teamTarget: teamTarget)
     swap(&teamAttacker, &teamTarget)// switch roles
     print("Appuyez sur entrer pour continuer!\n")
     if readLine() != nil {}
 }
+
