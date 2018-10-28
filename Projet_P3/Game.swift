@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
+// The Game class contains all the useful methods in fight
 class Game {
-    
+    // Check if the received character is alive and returns false if he is dead
     private func isAlive(character: Character) -> Bool {
         if character.life == false {
             print("Le personnage saisi est mort il faut en choisir un autre! ⚰️")
@@ -18,7 +18,7 @@ class Game {
             return true
         }
     }
-    
+    // Return the index of the character selected by the player and returns -1 if the input is incorrect
     private func selectFighter(input: String, stock: [Character]) -> Int {
         if let index = Int(input) {
             if isAlive(character: stock[index-1]) == true {
@@ -30,7 +30,7 @@ class Game {
             return -1
         }
     }
-    
+    // Check if the attacking team's characters need care
     private func needHealing(stock: [Character]) -> Bool {
         var cpt: Int = 0
         for i in 0 ..< stock.count {
@@ -43,7 +43,7 @@ class Game {
         }
         return false
     }
-    
+    // returns the value of the readLine method
     private func readInput() -> String {
         if let str = readLine() {
             return str
@@ -51,7 +51,7 @@ class Game {
             return "ERREUR"
         }
     }
-    
+    // Return the character's index if he can receive care
     private func healing(stock: [Character]) -> Int {
         var check: Bool = false
         var input: String = ""
@@ -78,7 +78,7 @@ class Game {
             }
         }
     }
-    
+    // Fight management
     func fight(teamAttacker: Team, teamTarget: Team) {
         var input: String = ""
         var check: Bool = false
@@ -141,7 +141,7 @@ class Game {
             fighter.weapon.basicWeapon(character: fighter)
         }
     }
-    
+    // Returns true if the magician is the only survivor
     private func forfeit(team: Team, round: Int) -> Bool{
         for i in 0 ..< team.stock.count {
             if team.stock[i].species == "Magicien" && team.stock[i].hp > 0 {
@@ -151,7 +151,7 @@ class Game {
         }
         return false
     }
-    
+    // returns true if all the characters in a team are dead or if forfeit is true
     func endGame(team1: Team, team2: Team, round: Int) -> Bool {
         if team1.deadCharacter == 3 {
             print("\n🎉 Victoire de \(team2.getName()) en \(round) 🎉")

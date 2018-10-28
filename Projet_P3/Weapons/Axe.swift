@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Axe class with its initializer
 class Axe: Weapons {
     init() {
         super.init(name: "Hache", power: 70)

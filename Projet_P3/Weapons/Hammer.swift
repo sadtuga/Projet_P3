@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Hammer class with its initializer
 class Hammer: Weapons {
     init() {
         super.init(name: "Marteau", power: 20)

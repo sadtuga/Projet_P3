@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Ahavarion class with its initializer
 class Ahavarion: Weapons {
     init() {
         super.init(name: "Ahavarion", power: 50)

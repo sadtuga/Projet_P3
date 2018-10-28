@@ -12,12 +12,14 @@ print("+---------------------------------------------------+")
 print("|               ⚔️ Debut de partie ⚔️               |")
 print("+---------------------------------------------------+\n")
 
+// Instance creation
 var team1: Team = Team()
 var team2: Team = Team()
 var game: Game = Game()
 var display: Display = Display()
 var round: Int = 0
 
+// Assign a name to the team
 print("Jouer 1 saisissez votre nom : ", terminator: "")
 team1.nameTeam()
 
@@ -33,7 +35,7 @@ repeat {
 print("+---------------------------------------------------+")
 print("|              👥 Création d'équipe 👥              |")
 print("+---------------------------------------------------+\n")
-
+// Team building
 print("\n\(team1.getName()) composé votre équipe\n")
 team1.selectCharacter(team: team2)
 
@@ -49,7 +51,7 @@ var teamTarget: Team = team2
 var rand: UInt32 = arc4random_uniform(100)
 
 print("🎲Le hasard décidera de qui portera le premier coup!🎲\n")
-
+// Random role assignment
 if rand % 2 == 1 {
     teamAttacker = team1
     teamTarget = team2
@@ -57,6 +59,7 @@ if rand % 2 == 1 {
     teamAttacker = team2
     teamTarget = team1
 }
+// The rest of the game is in this loop
 while game.endGame(team1: teamAttacker, team2: teamTarget, round: round) == false {
     round += 1
     display.displayRound(round: round)
@@ -65,6 +68,6 @@ while game.endGame(team1: teamAttacker, team2: teamTarget, round: round) == fals
     game.fight(teamAttacker: teamAttacker, teamTarget: teamTarget)
     swap(&teamAttacker, &teamTarget)// switch roles
     print("Appuyez sur entrer pour continuer!\n")
-    if readLine() != nil {}
+    if readLine() != nil {} // Puts the game in pose while waiting for the player supports on enter
 }
 

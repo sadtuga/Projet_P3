@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Heliophore class with its initializer
 class Heliophore: Weapons {
     init() {
         super.init(name: "Héliophore", power: 25)

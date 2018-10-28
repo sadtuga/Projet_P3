@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Genzaniku class with its initializer
 class Genzaniku: Weapons {
     init() {
         super.init(name: "Genzaniku", power: 100)
