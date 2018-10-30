@@ -55,21 +55,21 @@ class Game {
     private func healing(stock: [Character]) -> Int {
         var check: Bool = false
         var input: String = ""
-        print("\nSélectionner une cible parmi les membres de votre équipe pour le soigner 💊")
+        print("\nSélectionnez une cible parmi les membres de votre équipe pour le soigner 💊")
         input = readInput()
         while check == false {
             if let index = Int(input) {
                 if stock[index-1].species == "Magicien" {
-                    print("\nVous ne pouviez pas vous soigner vous-même ⛔️")
-                    print("\nSélectionner une cible parmi les membres de votre équipe pour le soigner 💊")
+                    print("\nVous ne pouvez pas vous soigner vous-même ⛔️")
+                    print("\nSélectionnez un autre membre de votre équipe pour le soigner 💊")
                     input = readInput()
                 }else if stock[index-1].hp == stock[index-1].maxHP && stock[index-1].species != "Magicien" {
                     print("\nLa santé de " + stock[index-1].name + " est au max sélectionner un autre personnage 🔄")
-                    print("\nSélectionner une cible parmi les membres de votre équipe pour le soigner 💊")
+                    print("\nSélectionnez un autre membre de votre équipe pour le soigner 💊")
                     input = readInput()
                 }else if stock[index-1].life == false && stock[index-1].species != "Magicien"{
                     print("\n\(stock[index-1].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
-                    print("\nSélectionner une cible parmi les membres de votre équipe pour le soigner 💊")
+                    print("\nSélectionnez un autre membre de votre équipe pour le soigner 💊")
                     input = readInput()
                 }else if stock[index-1].hp != stock[index-1].maxHP && stock[index-1].species != "Magicien" {
                     check = true
@@ -96,7 +96,7 @@ class Game {
                 }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == true {
                     check = true
                 }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == false {
-                    print("votre equipe na pas besoin de soins ⛔️\n")
+                    print("Votre equipe na pas besoin de soins ⛔️\n")
                     check = false
                 }
             }
@@ -132,7 +132,7 @@ class Game {
             target = teamTarget.stock[indexB]
             dodge = fighter.attack(target: target)
             if dodge == false {
-                print("\n" + fighter.name + " à attaquer " + target.name + " qui a perdu " + String(fighter.weapon.power) + " points de vie 💔\n")
+                print("\n" + fighter.name + " à attaqué " + target.name + " qui a perdu " + String(fighter.weapon.power) + " points de vie 💔\n")
                 teamTarget.deadCharacter += target.die()
             }
         }

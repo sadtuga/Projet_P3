@@ -49,12 +49,12 @@ class Team {
         case "4" :
             stock.append(Warrior(name: playerInput))
         default :
-            print("erreur ce personnage n'existe pas!")
+            print("erreur, ce personnage n'existe pas!")
         }
     }
     // Return the player choice
     private func choiceCharacter() -> String {
-        print("Sélectionner une classe 👤")
+        print("Sélectionnez une classe 👤")
         if let input = readLine() {
             if input == "1" || input == "2" || input == "3" || input == "4" {
                 return input
@@ -75,7 +75,7 @@ class Team {
     }
     // Returns the name of the fighter entered by the player
     private func nameCharater() -> String {
-        print("Nommer votre combattant! ✍️")
+        print("Nommez votre combattant! ✍️")
         if let input = readLine() {
             return input
         }
@@ -88,13 +88,13 @@ class Team {
 
         for i in 0 ..< stock.count {
             if converted == stock[i].name.lowercased() {
-                print("Le nom saisi est deja pris ❌")
+                print("Le nom saisi est déjà pris ❌")
                 return true
             }
         }
         for y in 0 ..< team.stock.count {
             if converted == team.stock[y].name.lowercased() {
-                print("Le nom saisi est deja pris ❌")
+                print("Le nom saisi est déjà pris ❌")
                 return true
             }
         }
@@ -106,10 +106,10 @@ class Team {
         var inputClass: String = ""
         var test: Bool = true
         
-        print("Les classe disponnible sont: 1. Nain" +
-            "\n                             2. Magicien" +
-            "\n                             3. Tank" +
-            "\n                             4. Guerrier")
+        print("Les classes disponnibles sont: 1. Nain" +
+            "\n                               2. Magicien" +
+            "\n                               3. Tank" +
+            "\n                               4. Guerrier")
         
         while stock.count < 3 {
             while inputClass == "" || inputClass == "Erreur" || test == true {

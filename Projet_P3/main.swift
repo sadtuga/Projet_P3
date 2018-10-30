@@ -20,11 +20,11 @@ var display: Display = Display()
 var round: Int = 0
 
 // Assign a name to the team
-print("Jouer 1 saisissez votre nom : ", terminator: "")
+print("Joueur 1 saisissez votre nom : ", terminator: "")
 team1.nameTeam()
 
 repeat {
-    print("\nJouer 2 saisissez votre nom : ", terminator: "")
+    print("\nJoueur 2 saisissez votre nom : ", terminator: "")
     team2.nameTeam()
     
     if team2.getName() == team1.getName() {
@@ -36,10 +36,10 @@ print("+---------------------------------------------------+")
 print("|              👥 Création d'équipe 👥              |")
 print("+---------------------------------------------------+\n")
 // Team building
-print("\n\(team1.getName()) composé votre équipe\n")
+print("\n\(team1.getName()) composez votre équipe\n")
 team1.selectCharacter(team: team2)
 
-print("\n\(team2.getName()) composé votre équipe\n")
+print("\n\(team2.getName()) composez votre équipe\n")
 team2.selectCharacter(team: team1)
 
 print("+----------------------------------------------------+")
@@ -50,7 +50,7 @@ var teamAttacker: Team = team1
 var teamTarget: Team = team2
 var rand: UInt32 = arc4random_uniform(100)
 
-print("🎲Le hasard décidera de qui portera le premier coup!🎲\n")
+print("🎲Le hasard décidera qui portera le premier coup!🎲\n")
 // Random role assignment
 if rand % 2 == 1 {
     teamAttacker = team1
@@ -67,7 +67,7 @@ while game.endGame(team1: teamAttacker, team2: teamTarget, round: round) == fals
     display.displayTeam(team: teamTarget)
     game.fight(teamAttacker: teamAttacker, teamTarget: teamTarget)
     swap(&teamAttacker, &teamTarget)// switch roles
-    print("Appuyez sur entrer pour continuer!\n")
+    print("Appuyez sur \"entrée\" pour continuer!\n")
     if readLine() != nil {} // Puts the game in pose while waiting for the player supports on enter
 }
 
