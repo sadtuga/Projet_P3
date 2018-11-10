@@ -20,13 +20,11 @@ class Game {
     }
     // Return the index of the character selected by the player and returns -1 if the input is incorrect
     private func selectFighter(input: String, stock: [Character]) -> Int {
-        if let index = Int(input) {
-            if isAlive(character: stock[index-1]) == true {
-                return index-1
-            }else {
-                return -1
-            }
-        }else {
+        let index: Int = Int(input)!
+        
+        if isAlive(character: stock[index-1]) == true {
+            return index-1
+        } else {
             return -1
         }
     }
@@ -43,44 +41,35 @@ class Game {
         }
         return false
     }
-    // returns the value of the readLine method
-    private func readInput() -> String {
-        if let str = readLine() {
-            return str
-        }else {
-            return "ERREUR"
-        }
-    }
+
     // Return the character's index if he can receive care
     private func healing(stock: [Character]) -> Int {
         var check: Bool = false
-        var input: String = ""
-        print("\nSélectionnez une cible parmi les membres de votre équipe pour le soigner 💊")
-        input = readInput()
+        var index: Int = -1
+        
         while check == false {
-            if let index = Int(input) {
-                if stock[index-1].species == "Magicien" {
-                    print("\nVous ne pouvez pas vous soigner vous-même ⛔️")
-                    print("\nSélectionnez un autre membre de votre équipe pour le soigner 💊")
-                    input = readInput()
-                }else if stock[index-1].hp == stock[index-1].maxHP && stock[index-1].species != "Magicien" {
-                    print("\nLa santé de " + stock[index-1].name + " est au max sélectionner un autre personnage 🔄")
-                    print("\nSélectionnez un autre membre de votre équipe pour le soigner 💊")
-                    input = readInput()
-                }else if stock[index-1].life == false && stock[index-1].species != "Magicien"{
-                    print("\n\(stock[index-1].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
-                    print("\nSélectionnez un autre membre de votre équipe pour le soigner 💊")
-                    input = readInput()
-                }else if stock[index-1].hp != stock[index-1].maxHP && stock[index-1].species != "Magicien" {
-                    check = true
-                    return index-1
+            print("\nSélectionnez une cible parmi les membres de votre équipe pour le soigner 💊")
+            if let input: String = readLine() {
+                if input == "1" || input == "2" || input == "3" {
+                    index = Int(input)!
+                    if stock[index-1].species == "Magicien" {
+                        print("\nVous ne pouvez pas vous soigner vous-même ⛔️")
+                    }else if stock[index-1].hp == stock[index-1].maxHP && stock[index-1].species != "Magicien" {
+                        print("\nLa santé de " + stock[index-1].name + " est au max sélectionner un autre personnage 🔄")
+                    }else if stock[index-1].life == false && stock[index-1].species != "Magicien"{
+                        print("\n\(stock[index-1].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
+                    }else if stock[index-1].hp != stock[index-1].maxHP && stock[index-1].species != "Magicien" {
+                        check = true
+                        return index-1
+                    }
+                } else {
+                    print("Veuillez choisir un personnage valide.")
                 }
             }
         }
     }
     // Fight management
     func fight(teamAttacker: Team, teamTarget: Team) {
-        var input: String = ""
         var check: Bool = false
         var dodge: Bool = false
         let event: UInt32 = arc4random_uniform(100)
@@ -90,14 +79,18 @@ class Game {
         while check == false {
             print("\nSélectionner un combattant 🗡")
             if let input: String = readLine() {
-                indexA = selectFighter(input: input, stock: teamAttacker.stock)
-                if indexA != -1 && indexA != 1 {
-                    check = true
-                }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == true {
-                    check = true
-                }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == false {
-                    print("Votre equipe na pas besoin de soins ⛔️\n")
-                    check = false
+                if input == "1" || input == "2" || input == "3" {
+                    indexA = selectFighter(input: input, stock: teamAttacker.stock)
+                    if indexA != -1 && indexA != 1 {
+                        check = true
+                    }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == true {
+                        check = true
+                    }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == false {
+                        print("Votre equipe na pas besoin de soins ⛔️\n")
+                        check = false
+                    }
+                } else {
+                    print("Veuillez choisir un personnage valide.")
                 }
             }
         }
@@ -108,14 +101,20 @@ class Game {
             while check == false {
                     if fighter.species != "Magicien" {
                         print("\nSélectionner une cible 🎯")
-                        input = readInput()
-                        indexB = selectFighter(input: input, stock: teamTarget.stock)
-                    }else if fighter.species == "Magicien" {
+                        if let input: String = readLine() {
+                            if input == "1" || input == "2" || input == "3" {
+                                indexB = selectFighter(input: input, stock: teamTarget.stock)
+                            } else {
+                                print("Veuillez choisir un personnage valide.")
+                                indexB = -1
+                            }
+                        }
+                    } else if fighter.species == "Magicien" {
                         indexB = healing(stock: teamAttacker.stock)
                     }
                     if indexB == -1 {
                         check = false
-                    }else {
+                    } else {
                         check = true
                     }
             }
