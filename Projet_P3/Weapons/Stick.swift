@@ -7,8 +7,10 @@
 //
 
 import Foundation
+
 // Stick class with its initializer
 class Stick: Weapons {
+    
     init() {
         super.init(name: "Bâton", power: 30)
     }

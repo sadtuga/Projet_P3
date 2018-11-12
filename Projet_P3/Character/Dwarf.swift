@@ -7,8 +7,10 @@
 //
 
 import Foundation
+
 // Dwarf class with its initializer
 class Dwarf: Character {
+    
     init(name: String) {
         super.init(name: name, hp: 150, species: "Nain", weapon: Axe())
     }

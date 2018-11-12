@@ -7,8 +7,10 @@
 //
 
 import Foundation
+
 // Wizard class with its initializer
 class Wizard: Character {
+    
     init(name: String) {
         super.init(name: name, hp: 100, species: "Magicien", weapon: Stick())
     }

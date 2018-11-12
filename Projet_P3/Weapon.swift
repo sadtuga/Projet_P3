@@ -7,15 +7,19 @@
 //
 
 import Foundation
+
 // Class representing a weapon
 class Weapons {
+    
     var power: Int = 0 // Represents the power of the weapon
     var name: String = "" // Stock the name of the weapon
+    
     // Initializes the parameters of the class
     init(name: String, power: Int) {
         self.name = name
         self.power = power
     }
+    
     // Equip a legendary weapon with the character according to his class
     func magicChest(character: Character) {
         switch character.species {
@@ -35,6 +39,7 @@ class Weapons {
             print("\nPas de chance le programme à planté 👾❗️")
         }
     }
+    
     // Equip a basic weapon to the character according to his class
     func basicWeapon(character: Character) {
         switch character.species {

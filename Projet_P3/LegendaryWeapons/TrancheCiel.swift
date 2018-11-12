@@ -7,8 +7,10 @@
 //
 
 import Foundation
+
 // TrancheCiel class with its initializer
 class TrancheCiel: Weapons {
+    
     init() {
         super.init(name: "Tranche-Ciel", power: 30)
     }

@@ -7,8 +7,10 @@
 //
 
 import Foundation
+
 // Tank class with its initializer
 class Tank: Character {
+    
     init(name: String) {
         super.init(name: name, hp: 200, species: "Tank", weapon: Hammer())
     }

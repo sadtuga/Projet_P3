@@ -7,8 +7,10 @@
 //
 
 import Foundation
+
 // Sword class with its initializer
 class Sword: Weapons {
+    
     init() {
         super.init(name: "Épée", power: 20)
     }

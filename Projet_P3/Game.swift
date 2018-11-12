@@ -7,32 +7,36 @@
 //
 
 import Foundation
+
 // The Game class contains all the useful methods in fight
 class Game {
+    
     // Check if the received character is alive and returns false if he is dead
     private func isAlive(character: Character) -> Bool {
         if character.life == false {
             print("Le personnage saisi est mort il faut en choisir un autre! ⚰️")
             return false
-        }else {
+        } else {
             return true
         }
     }
+    
     // Return the index of the character selected by the player and returns -1 if the input is incorrect
-    private func selectFighter(input: String, stock: [Character]) -> Int {
+    private func selectFighter(input: String, characters: [Character]) -> Int {
         let index: Int = Int(input)!
         
-        if isAlive(character: stock[index-1]) == true {
+        if isAlive(character: characters[index-1]) == true {
             return index-1
         } else {
             return -1
         }
     }
+    
     // Check if the attacking team's characters need care
-    private func needHealing(stock: [Character]) -> Bool {
+    private func needHealing(characters: [Character]) -> Bool {
         var cpt: Int = 0
-        for i in 0 ..< stock.count {
-            if stock[i].hp < stock[i].maxHP && stock[i].life != false && stock[i].species != "Magicien" {
+        for i in 0 ..< characters.count {
+            if characters[i].hp < characters[i].maxHP && characters[i].life != false && characters[i].species != "Magicien" {
                 cpt += 1
             }
         }
@@ -43,7 +47,7 @@ class Game {
     }
 
     // Return the character's index if he can receive care
-    private func healing(stock: [Character]) -> Int {
+    private func healing(characters: [Character]) -> Int {
         var check: Bool = false
         var index: Int = -1
         
@@ -52,13 +56,13 @@ class Game {
             if let input: String = readLine() {
                 if input == "1" || input == "2" || input == "3" {
                     index = Int(input)!
-                    if stock[index-1].species == "Magicien" {
+                    if characters[index-1].species == "Magicien" {
                         print("\nVous ne pouvez pas vous soigner vous-même ⛔️")
-                    }else if stock[index-1].hp == stock[index-1].maxHP && stock[index-1].species != "Magicien" {
-                        print("\nLa santé de " + stock[index-1].name + " est au max sélectionner un autre personnage 🔄")
-                    }else if stock[index-1].life == false && stock[index-1].species != "Magicien"{
-                        print("\n\(stock[index-1].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
-                    }else if stock[index-1].hp != stock[index-1].maxHP && stock[index-1].species != "Magicien" {
+                    } else if characters[index-1].hp == characters[index-1].maxHP && characters[index-1].species != "Magicien" {
+                        print("\nLa santé de " + characters[index-1].name + " est au max sélectionner un autre personnage 🔄")
+                    } else if characters[index-1].life == false && characters[index-1].species != "Magicien" {
+                        print("\n\(characters[index-1].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
+                    } else if characters[index-1].hp != characters[index-1].maxHP && characters[index-1].species != "Magicien" {
                         check = true
                         return index-1
                     }
@@ -68,6 +72,7 @@ class Game {
             }
         }
     }
+    
     // Fight management
     func fight(teamAttacker: Team, teamTarget: Team) {
         var check: Bool = false
@@ -80,12 +85,12 @@ class Game {
             print("\nSélectionner un combattant 🗡")
             if let input: String = readLine() {
                 if input == "1" || input == "2" || input == "3" {
-                    indexA = selectFighter(input: input, stock: teamAttacker.stock)
+                    indexA = selectFighter(input: input, characters: teamAttacker.characters)
                     if indexA != -1 && indexA != 1 {
                         check = true
-                    }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == true {
+                    } else if indexA == 1 && needHealing(characters: teamAttacker.characters) == true {
                         check = true
-                    }else if indexA == 1 && needHealing(stock: teamAttacker.stock) == false {
+                    } else if indexA == 1 && needHealing(characters: teamAttacker.characters) == false {
                         print("Votre equipe na pas besoin de soins ⛔️\n")
                         check = false
                     }
@@ -95,7 +100,7 @@ class Game {
             }
         }
         check = false
-        let fighter: Character = teamAttacker.stock[indexA]
+        let fighter: Character = teamAttacker.characters[indexA]
         
         var target: Character
             while check == false {
@@ -103,14 +108,14 @@ class Game {
                         print("\nSélectionner une cible 🎯")
                         if let input: String = readLine() {
                             if input == "1" || input == "2" || input == "3" {
-                                indexB = selectFighter(input: input, stock: teamTarget.stock)
+                                indexB = selectFighter(input: input, characters: teamTarget.characters)
                             } else {
                                 print("Veuillez choisir un personnage valide.")
                                 indexB = -1
                             }
                         }
                     } else if fighter.species == "Magicien" {
-                        indexB = healing(stock: teamAttacker.stock)
+                        indexB = healing(characters: teamAttacker.characters)
                     }
                     if indexB == -1 {
                         check = false
@@ -124,11 +129,11 @@ class Game {
         }
 
         if fighter.species == "Magicien" {
-            target = teamAttacker.stock[indexB]
+            target = teamAttacker.characters[indexB]
             fighter.healing(target: target)
             print("\n" + fighter.name + " à soigner " + target.name + " qui a maintenant " + String(target.hp) + " points de vie ❤️\n")
-        }else if fighter.species != "Magicien" {
-            target = teamTarget.stock[indexB]
+        } else if fighter.species != "Magicien" {
+            target = teamTarget.characters[indexB]
             dodge = fighter.attack(target: target)
             if dodge == false {
                 print("\n" + fighter.name + " à attaqué " + target.name + " qui a perdu " + String(fighter.weapon.power) + " points de vie 💔\n")
@@ -140,28 +145,30 @@ class Game {
             fighter.weapon.basicWeapon(character: fighter)
         }
     }
+    
     // Returns true if the magician is the only survivor
     private func forfeit(team: Team, round: Int) -> Bool{
-        for i in 0 ..< team.stock.count {
-            if team.stock[i].species == "Magicien" && team.stock[i].hp > 0 {
+        for i in 0 ..< team.characters.count {
+            if team.characters[i].species == "Magicien" && team.characters[i].hp > 0 {
                 print("\n😱 l'équipe " + team.getName() + " d'éclare forfait au round numéro \(round) 😱\n")
                 return true
             }
         }
         return false
     }
+    
     // returns true if all the characters in a team are dead or if forfeit is true
-    func endGame(team1: Team, team2: Team, round: Int) -> Bool {
-        if team1.deadCharacter == 3 {
-            print("\n🎉 Victoire de \(team2.getName()) en \(round) 🎉")
+    func endGame(teamOne: Team, teamTwo: Team, round: Int) -> Bool {
+        if teamOne.deadCharacter == 3 {
+            print("\n🎉 Victoire de \(teamTwo.getName()) en \(round) 🎉")
             return true
-        }else if team1.deadCharacter == 2 {
-            return forfeit(team: team1, round: round)
-        }else if team2.deadCharacter == 3 {
-            print("\n🎉 Victoire de \(team1.getName()) en \(round) 🎉")
+        } else if teamOne.deadCharacter == 2 {
+            return forfeit(team: teamOne, round: round)
+        } else if teamTwo.deadCharacter == 3 {
+            print("\n🎉 Victoire de \(teamOne.getName()) en \(round) 🎉")
             return true
-        }else if team2.deadCharacter == 2 {
-            return forfeit(team: team2, round: round)
+        } else if teamTwo.deadCharacter == 2 {
+            return forfeit(team: teamTwo, round: round)
         }
         return false
     }
