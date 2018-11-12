@@ -24,17 +24,21 @@ class Weapons {
     func magicChest(character: Character) {
         switch character.species {
         case "Nain":
-            print("\nLe nain ramasse Genzaniku une hache légendaire qui inflige \(character.weapon.power) points de dégâts")
+            print("\nLe nain ramasse Genzaniku une hache légendaire qui inflige ", terminator: "")
             character.weapon = Genzaniku()
+            print("\(character.weapon.power) points de dégâts")
         case "Magicien":
+            print("\nLe prêtre ramasse Ahavarion une bâton légendaire qui régénère ", terminator: "")
             character.weapon = Ahavarion()
-            print("\nLe prêtre ramasse Ahavarion une bâton légendaire qui régénère \(character.weapon.power) points de vie")
+            print("\(character.weapon.power) points de vie")
         case "Guerrier":
+            print("\nLe guerrier ramasse Tranche-Ciel une épée légendaire qui inflige ", terminator: "")
             character.weapon = TrancheCiel()
-            print("\nLe guerrier ramasse Tranche-Ciel une épée légendaire qui inflige \(character.weapon.power) points de dégâts")
+            print("\(character.weapon.power) points de dégâts")
         case "Tank":
+            print("\nLe tank ramasse Héliophore une marteau légendaire qui inflige ", terminator: "")
             character.weapon = Heliophore()
-            print("\nLe tank ramasse Héliophore une marteau légendaire qui inflige \(character.weapon.power) points de dégâts")
+            print("\(character.weapon.power) points de dégâts")
         default:
             print("\nPas de chance le programme à planté 👾❗️")
         }

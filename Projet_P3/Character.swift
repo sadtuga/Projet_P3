@@ -28,33 +28,18 @@ class Character {
     }
     
     // Call the dodge method and if it returns false the target suffered damage otherwise nothing happens
-    func attack(target: Character) -> Bool {
-        if dodge() == false {
+    func attack(target: Character) {
             target.hp -= self.weapon.power
-            return false
-        } else {
-            print(target.name + " esquive l'attaque! 🤪\n")
-            return true
-        }
     }
     
     // Returns true if the variable rand is between 0 and 20
-    private func dodge() -> Bool {
+    func dodge() -> Bool {
         let rand: UInt32 = arc4random_uniform(100)
         if rand >= 0 && rand <= 20 {
+            print(name + " esquive l'attaque! 🤪\n")
             return true
         } else {
             return false
-        }
-    }
-    
-    // Increases the HP of the target
-    func healing(target: Character) {
-        let healing: Int = weapon.power
-        if target.hp + healing >= target.maxHP {
-            target.hp = target.maxHP
-        } else {
-            target.hp += healing
         }
     }
     

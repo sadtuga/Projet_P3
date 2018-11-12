@@ -14,4 +14,14 @@ class Wizard: Character {
     init(name: String) {
         super.init(name: name, hp: 100, species: "Magicien", weapon: Stick())
     }
+    
+    // Increases the HP of the target
+    override func attack(target: Character) {
+        let healing: Int = weapon.power
+        if target.hp + healing >= target.maxHP {
+            target.hp = target.maxHP
+        } else {
+            target.hp += healing
+        }
+    }
 }

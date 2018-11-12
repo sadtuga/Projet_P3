@@ -144,7 +144,6 @@ class Game {
     // Fight management
     func fight(teamAttacker: Team, teamTarget: Team) {
         var check: Bool = false
-        var dodge: Bool = false
         let event: UInt32 = arc4random_uniform(100)
         var indexA: Int = 0
         var indexB: Int = 0
@@ -191,19 +190,19 @@ class Game {
                         check = true
                     }
             }
-        
+
         if event >= 15 && event <= 40 {
             fighter.weapon.magicChest(character: fighter)
         }
 
         if fighter.species == "Magicien" {
             target = teamAttacker.characters[indexB]
-            fighter.healing(target: target)
+            fighter.attack(target: target)
             print("\n" + fighter.name + " à soigner " + target.name + " qui a maintenant " + String(target.hp) + " points de vie ❤️\n")
         } else if fighter.species != "Magicien" {
             target = teamTarget.characters[indexB]
-            dodge = fighter.attack(target: target)
-            if dodge == false {
+            if target.dodge() != true {
+                fighter.attack(target: target)
                 print("\n" + fighter.name + " à attaqué " + target.name + " qui a perdu " + String(fighter.weapon.power) + " points de vie 💔\n")
                 teamTarget.deadCharacter += target.die()
             }
