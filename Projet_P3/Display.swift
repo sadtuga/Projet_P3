@@ -11,6 +11,25 @@ import Foundation
 // The display class contains all the methods for displaying information
 class Display {
     
+    func gameStart() {
+        print("+---------------------------------------------------+")
+        print("|               ⚔️ Debut de partie ⚔️               |")
+        print("+---------------------------------------------------+\n")
+    }
+    
+    func teamBuilding() {
+        print("\n+---------------------------------------------------+")
+        print("|              👥 Création d'équipe 👥              |")
+        print("+---------------------------------------------------+\n")
+    }
+    
+    func startBattle() {
+        print("\n+----------------------------------------------------+")
+        print("|               ⚔️ Début du combat! ⚔️               |")
+        print("+----------------------------------------------------+\n")
+    }
+    
+    
     // Adds space to the received string until you reach the desired length
     private func padding(chain: String, lenght: Int) -> String {
         let padded = chain.padding(toLength: lenght, withPad: " ", startingAt: 0)

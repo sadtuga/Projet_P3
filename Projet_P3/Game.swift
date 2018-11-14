@@ -13,15 +13,13 @@ class Game {
     
     func play() {
         
-        print("+---------------------------------------------------+")
-        print("|               ⚔️ Debut de partie ⚔️               |")
-        print("+---------------------------------------------------+\n")
-        
         // Instance creation
         let teamOne: Team = Team()
         let teamTwo: Team = Team()
         let display: Display = Display()
         var round: Int = 0
+        
+        display.gameStart()
         
         // Assign a name to the team
         print("Joueur 1 saisissez votre nom : ", terminator: "")
@@ -36,9 +34,7 @@ class Game {
             }
         } while teamTwo.getName() == teamOne.getName()
         
-        print("+---------------------------------------------------+")
-        print("|              👥 Création d'équipe 👥              |")
-        print("+---------------------------------------------------+\n")
+        display.teamBuilding()
         
         // Team building
         print("\n\(teamOne.getName()) composez votre équipe\n")
@@ -47,9 +43,7 @@ class Game {
         print("\n\(teamTwo.getName()) composez votre équipe\n")
         teamTwo.selectCharacter(team: teamOne)
         
-        print("+----------------------------------------------------+")
-        print("|               ⚔️ Début du combat! ⚔️               |")
-        print("+----------------------------------------------------+\n")
+        display.startBattle()
         
         var teamAttacker: Team = teamOne
         var teamTarget: Team = teamTwo
