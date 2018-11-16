@@ -55,7 +55,7 @@ class Game {
         if rand % 2 == 1 {
             teamAttacker = teamOne
             teamTarget = teamTwo
-        }else if rand % 2 == 0 {
+        } else if rand % 2 == 0 {
             teamAttacker = teamTwo
             teamTarget = teamOne
         }
@@ -86,7 +86,7 @@ class Game {
     private func needHealing(_ characters: [Character]) -> Bool {
         var cpt: Int = 0
         for i in 0 ..< characters.count {
-            if characters[i].hp < characters[i].maxHP && characters[i].life != false && characters[i].species != "Magicien" {
+            if characters[i].hp < characters[i].maxHP && characters[i].life != false && characters[i].isWizard != true {
                 cpt += 1
             }
         }
@@ -105,7 +105,7 @@ class Game {
                     if isAlive(character: characters[Int(input)!-1]) == false {
                         print("Le personnage saisi est mort il faut en choisir un autre! ⚰️")
                         print("Choisissez un autre personnage❗️")
-                    } else if characters[Int(input)!-1].species == "Magicien" && healing == false {
+                    } else if characters[Int(input)!-1].isWizard == true && healing == false {
                         print("Votre équipe n'a pas besoin de soins ⛔️\n")
                         print("Choisissez un autre personnage❗️")
                     } else {
@@ -126,13 +126,13 @@ class Game {
         while check == false {
             print("\nSélectionnez une cible parmi les membres de votre équipe pour le soigner 💊")
             index = readInput(characters, nil)
-            if characters[index].species == "Magicien" {
+            if characters[index].isWizard == true {
                 print("\nVous ne pouvez pas vous soigner vous-même ⛔️")
-            } else if characters[index].hp == characters[index].maxHP && characters[index].species != "Magicien" {
+            } else if characters[index].hp == characters[index].maxHP && characters[index].isWizard != true {
                 print("\nLa santé de " + characters[index].name + " est au max sélectionner un autre personnage 🔄")
-            } else if characters[index].life == false && characters[index].species != "Magicien" {
+            } else if characters[index].life == false && characters[index].isWizard != true {
                 print("\n\(characters[index].name) est déjà mort vous ne pouvez pas le soigner ⚰️")
-            } else if characters[index].hp != characters[index].maxHP && characters[index].species != "Magicien" {
+            } else if characters[index].hp != characters[index].maxHP && characters[index].isWizard != true {
                 check = true
                 return index
             }
@@ -157,18 +157,18 @@ class Game {
             fighter.weapon.basicWeapon(character: fighter)
             return false
         } else {
-            return false
+            return true
         }
     }
     
     // Fight management
     private func fightManagement(fighter: Character, teamAttacker: Team, teamTarget: Team, indexB: Int) {
         let target: Character
-        if fighter.species == "Magicien" {
+        if fighter.isWizard == true {
             target = teamAttacker.characters[indexB]
             fighter.attack(target: target)
             print("\n" + fighter.name + " à soigner " + target.name + " qui a maintenant " + String(target.hp) + " points de vie ❤️\n")
-        } else if fighter.species != "Magicien" {
+        } else if fighter.isWizard != true {
             target = teamTarget.characters[indexB]
             if target.dodge() != true {
                 fighter.attack(target: target)
@@ -187,10 +187,10 @@ class Game {
         indexA = selectAttacker(attacker: teamAttacker.characters)
         let fighter: Character = teamAttacker.characters[indexA]
         
-        if fighter.species != "Magicien" {
+        if fighter.isWizard != true {
             print("\nSélectionner une cible 🎯")
             indexB = readInput(teamTarget.characters, nil)
-        } else if fighter.species == "Magicien" {
+        } else if fighter.isWizard == true {
             indexB = healing(characters: teamAttacker.characters)
         }
         
@@ -202,7 +202,7 @@ class Game {
     // Returns true if the magician is the only survivor
     private func forfeit(team: Team, round: Int) -> Bool{
         for i in 0 ..< team.characters.count {
-            if team.characters[i].species == "Magicien" && team.characters[i].hp > 0 {
+            if team.characters[i].isWizard == true && team.characters[i].hp > 0 {
                 print("\n😱 l'équipe " + team.getName() + " d'éclare forfait au round numéro \(round) rounds 😱\n")
                 return true
             }

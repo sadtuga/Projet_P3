@@ -11,24 +11,26 @@ import Foundation
 // The display class contains all the methods for displaying information
 class Display {
     
+    // Show start of the game
     func gameStart() {
         print("+---------------------------------------------------+")
         print("|               ⚔️ Debut de partie ⚔️               |")
         print("+---------------------------------------------------+\n")
     }
     
+    // Show team creation
     func teamBuilding() {
         print("\n+---------------------------------------------------+")
         print("|              👥 Création d'équipe 👥              |")
         print("+---------------------------------------------------+\n")
     }
     
+    // The beginning of the fight
     func startBattle() {
         print("\n+----------------------------------------------------+")
         print("|               ⚔️ Début du combat! ⚔️               |")
         print("+----------------------------------------------------+\n")
     }
-    
     
     // Adds space to the received string until you reach the desired length
     private func padding(chain: String, lenght: Int) -> String {

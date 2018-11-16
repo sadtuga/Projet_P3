@@ -15,14 +15,16 @@ class Character {
     var life: Bool = true // Is equal to true if the character is alive and false if he is dead
     var maxHP: Int // Represents the maximum number of life points of the character
     var name: String // Stock the name of the character
-    var species: String // stock the character class
-    var weapon: Weapons // stock the character's weapon
+    var species: String // Stock the character class
+    var isWizard: Bool? // Indicates if the character is a wizard
+    var weapon: Weapons // Stock the character's weapon
     
     // Initializes the parameters of the class
-    init(name: String, hp: Int, species: String, weapon: Weapons) {
+    init(name: String, hp: Int, species: String, weapon: Weapons, isWizard: Bool?) {
         self.name = name
         self.hp = hp
         self.species = species
+        self.isWizard = isWizard
         self.weapon = weapon
         maxHP = hp
     }
@@ -36,7 +38,7 @@ class Character {
     func dodge() -> Bool {
         let rand: UInt32 = arc4random_uniform(100)
         if rand >= 0 && rand <= 20 {
-            print(name + " esquive l'attaque! 🤪\n")
+            print("\n" + name + " esquive l'attaque! 🤪\n")
             return true
         } else {
             return false

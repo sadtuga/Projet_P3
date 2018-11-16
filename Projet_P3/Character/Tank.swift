@@ -12,6 +12,6 @@ import Foundation
 class Tank: Character {
     
     init(name: String) {
-        super.init(name: name, hp: 200, species: "Tank", weapon: Hammer())
+        super.init(name: name, hp: 200, species: "Tank", weapon: Hammer(), isWizard: nil)
     }
 }
